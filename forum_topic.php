@@ -1,4 +1,5 @@
 <?php
+session_start();
 require('php/config.php'); /* Connexion à la bdd */
 require('php/functions.php'); /* Mes fonctions */
 require('php/functions_forum.php');

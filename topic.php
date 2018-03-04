@@ -1,6 +1,7 @@
 <?php
-require('php/config.php');
-require('php/functions.php');
+session_start();
+require('php/config.php'); /* Contient la connexion à la $bdd */
+require('php/functions.php'); /* Mes fonctions */
 require('php/functions_forum.php');
 if(isset($_GET['titre'],$_GET['id']) AND !empty($_GET['titre']) AND !empty($_GET['id'])) {
     $get_titre = htmlspecialchars($_GET['titre']);
@@ -24,7 +25,7 @@ if(isset($_GET['titre'],$_GET['id']) AND !empty($_GET['titre']) AND !empty($_GET
                     $reponse_msg = "Votre réponse ne peut pas être vide !";
                 }
             } else {
-                $reponse_msg = "Veuillez vous connecter ou créer un compte pour poster une réponse";
+                $reponse_msg = "Veuillez vous connecter ou créer un compte pour poster une réponse . <a href=\"connexion.php\">Me connecter</a>";
             }
         }
         if(isset($_GET['page']) AND $_GET['page'] > 1) {

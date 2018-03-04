@@ -1,3 +1,6 @@
+<?php
+require('php/config.php');
+?>
 <!DOCTYPEhtml>
 <html lang="fr">
 <head>
@@ -16,7 +19,10 @@
                     <th class="sub-info messages hide-640">Réponses</th>
                     <th class="sub-info dmessage">Dernière réponse</th>
                 </tr>
-                <?php
+                <?php /*Affichage des catégories et sous-catégories*/
+                $categories = $bdd->query('SELECT * FROM f_categories ORDER BY nom');
+                $subcat = $bdd->prepare('SELECT * FROM f_souscategories WHERE id_categorie = ? ORDER BY nom');
+
                 while($c = $categories->fetch()) {
                     $subcat->execute(array($c['id']));
                     $souscategories = '';

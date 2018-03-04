@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 require('php/config.php'); /* Connexion à la base de donnée */
 require('php/functions.php'); /* Mes fonctions */
 
@@ -14,7 +16,7 @@ if(isset($_GET['categorie'])) {
         $souscategories = $bdd->prepare('SELECT * FROM f_souscategories WHERE id_categorie = ? ORDER BY nom');
         $souscategories->execute(array($get_categorie));
         if(isset($_SESSION['id'])) {
-            if(isset($_POST['tsubmit'])) {
+            if(isset($_POST['tsubmit'])) { /*Vérification si le formulaire est envoyé*/
                 if(isset($_POST['tsujet'],$_POST['tcontenu'])) {
                     $sujet = htmlspecialchars($_POST['tsujet']);
                     $contenu = htmlspecialchars($_POST['tcontenu']);
@@ -50,14 +52,14 @@ if(isset($_GET['categorie'])) {
                 }
             }
         } else {
-            $terror = "Veuillez vous connecter pour poster un nouveau topic";
+            $terror = "Veuillez vous connecter pour poster un nouveau topic . <a href=\"connexion.php\">Me connecter</a>";
         }
         } else {
         die('Catégorie invalide...');
         }
     } else {
         die('Aucune catégorie définie...');
-    } 
+    }
     
 require('views/nouveau_topic.view.php'); /* Appel du fichier "vue" de notre page */
 ?>

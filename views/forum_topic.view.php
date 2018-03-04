@@ -28,7 +28,7 @@
                 </tr>
                 <?php } ?>
             </table>
-            <a href="/ProjetWeb/nouveau_topic.php?categorie=<?= $id_categorie ?>">Créer un nouveau topic</a>
+            <a class="btn ntopic" href="/ProjetWeb/nouveau_topic.php?categorie=<?= $id_categorie ?>"><span class="icon-quill"></span>Créer un nouveau topic</a>
         </div>
     </div>
 </div>

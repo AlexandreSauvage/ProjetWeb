@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require('php/config.php');
+require('php/config.php'); /* Contient la connexion à la $bdd */
 
 if(isset($_POST['formconnexion']))
 {
@@ -37,7 +37,7 @@ if(isset($_POST['formconnexion']))
     <head>
         <title>Connexion</title>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="css/forum.css" />
     </head>
 
     <body>
@@ -47,6 +47,7 @@ if(isset($_POST['formconnexion']))
                 <input type="password" name="mdpconnect" placeholder="Mot de passe" />
                 <input type="submit" name="formconnexion" value="Se connecter" />
             </form>
+            <a href="inscription.php">S'inscrire</a>
             <?php
             if(isset($erreur))
             {

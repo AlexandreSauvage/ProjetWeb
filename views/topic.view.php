@@ -45,7 +45,9 @@
                 </form>
                 <?php if(isset($reponse_msg)) { echo $reponse_msg; } ?>
             <?php } else { ?>
-            <p>Veuillez vous connecter ou créer un compte pour poster une réponse</p>
+            <p>Veuillez vous connecter ou créer un compte pour poster une réponse.
+            <a href="connexion.php">Me connecter</a>
+            <a href="forum.php">Retour à l'accueil</a></p>
             <?php } ?>
         </div>
     </div>
