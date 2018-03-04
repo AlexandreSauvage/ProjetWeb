@@ -33,26 +33,27 @@ if(isset($_POST['formconnexion']))
 
 ?>
 <!DOCTYPEhtml>
-<html>
-    <head>
-        <title>Connexion</title>
-        <meta charset="utf-8" />
-        <link rel="stylesheet" href="css/forum.css" />
-    </head>
-    <body>
-        <h1>FREESTYLE SUR GLACE</h1>
-            <form method="POST" action="">
-                <input type="email" name="mailconnect" placeholder="Mail" />
-                <input type="password" name="mdpconnect" placeholder="Mot de passe" />
-                <input type="submit" name="formconnexion" value="Se connecter" />
-            </form>
-            </br>
-            <a class="btn ntopic" href="inscription.php">S'inscrire</a>
-            <?php
-            if(isset($erreur))
-            {
-                echo '<font color="red">'.$erreur."</font>";
-            }
-            ?>
-    </body>
+<html lang="fr">
+<head>
+    <title>Connexion</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/forum.css">
+</head>
+<body>
+    <h1>FREESTYLE SUR GLACE</h1>
+        <form class="fntopic" method="POST" action="">
+            <input type="email" name="mailconnect" placeholder="Mail" />
+            <input type="password" name="mdpconnect" placeholder="Mot de passe" />
+            <input type="submit" name="formconnexion" value="Se connecter" />
+        </form>
+        </br>
+        <a class="btn ntopic" href="inscription.php">S'inscrire</a>
+        <?php
+        if(isset($erreur))
+        {
+            echo '<font color="red">'.$erreur."</font>";
+        }
+        ?>
+</body>
 </html>
