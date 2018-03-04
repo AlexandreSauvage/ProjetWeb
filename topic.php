@@ -14,11 +14,26 @@ if(isset($_GET['titre'],$_GET['id']) AND !empty($_GET['titre']) AND !empty($_GET
         $auteur = $bdd->prepare('SELECT * FROM membres WHERE id = ?');
         $auteur->execute(array($topic['id_createur']));
         $auteur = $auteur->fetch();
+        if(isset($_POST['topic_reponse_submit'],$_POST['topic_reponse'])) {
+            $reponse = htmlspecialchars($_POST['topic_reponse']);
+            if(isset($_SESSION['id'])) {
+                if(!empty($reponse)) {
+                $ins = $bdd->prepare('INSERT INTO f_messages(id_topic,id_posteur,contenu,date_heure_post) VALUES (?,?,?,NOW())');
+                $ins->execute(array($get_id,$_SESSION['id'],$reponse));
+                $reponse_msg = "Votre réponse a bien été postée";
+                unset($reponse);
+                } else {
+                $reponse_msg = "Votre réponse ne peut pas être vide !";
+                }
+            } else {
+                $reponse_msg = "Veuillez vous connecter ou créer un compte pour poster une réponse";
+            }
+        }
     } else {
         die('Erreur: Le titre ne correspond pas à l\'id');
     }
     require('views/topic.view.php');
 } else {
-    die('Erreur...');
+   die('Erreur...');
 }
 ?>
