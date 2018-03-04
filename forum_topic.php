@@ -29,7 +29,7 @@ if(isset($_GET['categorie']) AND !empty($_GET['categorie'])) {
             }
          }
       }
-      $req = "SELECT * FROM f_topics
+      $req = "SELECT *, f_topics.id topic_base_id FROM f_topics
             LEFT JOIN f_topics_categories ON f_topics.id = f_topics_categories.id_topic 
             LEFT JOIN f_categories ON f_topics_categories.id_categorie = f_categories.id
             LEFT JOIN f_souscategories ON f_topics_categories.id_souscategorie = f_souscategories.id
