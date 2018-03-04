@@ -24,11 +24,11 @@ require('php/config.php');
                 $subcat = $bdd->prepare('SELECT * FROM f_souscategories WHERE id_categorie = ? ORDER BY nom');
 
                 while($c = $categories->fetch()) {
-                    $subcat->execute(array($c['id']));
+                    $subcat->execute(array($c['id']));/*fais passer l'id de la catégorie en cours dans la boucle*/
                     $souscategories = '';
                     while($sc = $subcat->fetch()) { 
                         $souscategories .= '<a href="/ProjetWeb/forum_topic.php?categorie='.url_custom_encode($c['nom']).'&souscategorie='.url_custom_encode($sc['nom']).'">'.$sc['nom'].'</a> | ';
-                    }
+                    }               /*réduit la taille de la chaine de caractère*/
                     $souscategories = substr($souscategories, 0, -3);
                 ?>
                 <tr class="categories">

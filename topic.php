@@ -27,7 +27,7 @@ if(isset($_GET['titre'],$_GET['id']) AND !empty($_GET['titre']) AND !empty($_GET
             } else {
                 $reponse_msg = "Veuillez vous connecter ou créer un compte pour poster une réponse . <a href=\"connexion.php\">Me connecter</a>";
             }
-        }
+        }/*Système de pagination*/
         if(isset($_GET['page']) AND $_GET['page'] > 1) {
             $reponsesParPage = 6;
         } else {

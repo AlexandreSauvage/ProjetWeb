@@ -10,9 +10,11 @@ if(isset($_GET['categorie'])) {
     $categorie = $bdd->prepare('SELECT * FROM f_categories WHERE id = ?');
     $categorie->execute(array($get_categorie));
     $cat_exist = $categorie->rowCount();
+    /*Vérifie si existe*/
     if($cat_exist == 1) {
         $categorie = $categorie->fetch();
         $categorie = $categorie['nom'];
+        /*Liste les sous catégories pour la sélection*/
         $souscategories = $bdd->prepare('SELECT * FROM f_souscategories WHERE id_categorie = ? ORDER BY nom');
         $souscategories->execute(array($get_categorie));
         if(isset($_SESSION['id'])) {
@@ -21,6 +23,7 @@ if(isset($_GET['categorie'])) {
                     $sujet = htmlspecialchars($_POST['tsujet']);
                     $contenu = htmlspecialchars($_POST['tcontenu']);
                     $souscategorie = htmlspecialchars($_POST['souscategorie']);
+                    /*Vérifie si les sous catégories correspondent bien*/
                     $verify_sc = $bdd->prepare('SELECT id FROM f_souscategories WHERE id = ? AND id_categorie = ?');
                     $verify_sc->execute(array($souscategorie,$get_categorie));
                     $verify_sc = $verify_sc->rowCount();
@@ -34,7 +37,7 @@ if(isset($_GET['categorie'])) {
                             }
                             $ins = $bdd->prepare('INSERT INTO f_topics (id_createur, sujet, contenu, notif_createur, date_heure_creation) VALUES(?,?,?,?,NOW())');
                             $ins->execute(array($_SESSION['id'],$sujet,$contenu,$notif_mail));
-                            
+                            /*Récupère le dernier topic*/
                             $lt = $bdd->query('SELECT id FROM f_topics ORDER BY id DESC LIMIT 0,1');
                             $lt = $lt->fetch();
                             $id_topic = $lt['id'];

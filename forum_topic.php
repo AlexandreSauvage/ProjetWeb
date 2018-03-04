@@ -3,7 +3,7 @@ session_start();
 require('php/config.php'); /* Connexion à la bdd */
 require('php/functions.php'); /* Mes fonctions */
 require('php/functions_forum.php');
-
+/*Vérifie si la variable éxiste et contient qqch*/
 if(isset($_GET['categorie']) AND !empty($_GET['categorie'])) {
    $get_categorie = htmlspecialchars($_GET['categorie']);
    $categories = array();
@@ -30,12 +30,12 @@ if(isset($_GET['categorie']) AND !empty($_GET['categorie'])) {
                $id_souscategorie = intval($cat[0]);
             }
          }
-      }
+      }/*Lier les catégories et sous catégories qui correspondent à chaque topic*/
       $req = "SELECT *, f_topics.id topic_base_id FROM f_topics
             LEFT JOIN f_topics_categories ON f_topics.id = f_topics_categories.id_topic 
             LEFT JOIN f_categories ON f_topics_categories.id_categorie = f_categories.id
             LEFT JOIN f_souscategories ON f_topics_categories.id_souscategorie = f_souscategories.id
-            LEFT JOIN membres ON f_topics.id_createur = membres.id
+            LEFT JOIN membres ON f_topics.id_createur = membres.id /*récupère le pseudo pour afficher le créateur*/
             WHERE f_categories.id = ?";
 
       if(@$id_souscategorie) {

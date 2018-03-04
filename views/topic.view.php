@@ -21,14 +21,14 @@
                     <td><?= $topic['contenu'] ?></td>
                 </tr>
                 <?php } ?>
-                <?php while($r = $reponses->fetch()) { ?>
+                <?php while($r = $reponses->fetch()) { /*Afficher les réponses*/ ?>
                 <tr>
                     <td><?= get_pseudo($r['id_posteur']) ?></td>
                     <td><?= $r['contenu'] ?></td>
                 </tr>
                 <?php } ?>
             </table>
-            <?php
+            <?php /*Système de pagination*/
                 for($i=1;$i<=$pagesTotales;$i++) {
                     if($i == $pageCourante) {
                         echo $i.' ';
