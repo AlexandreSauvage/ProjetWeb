@@ -5,7 +5,7 @@
       <th class="sub-info w20">Dernier message</th>
       <th class="sub-info w20">Création</th>
    </tr>
-   <?php while($t = $topics->fetch()) { /*Va chercher les topics*/ ?> 
+   <?php while($t = $topics->fetch()) { ?>
    <tr>
       <td class="main">
          <h4><a href=""><?= $t['sujet'] ?></a></h4>
@@ -16,3 +16,4 @@
    </tr>
    <?php } ?>
 </table>
+<a href="/ProjetWeb/nouveau_topic.php?categorie=<?= $id_categorie ?>">Créer un nouveau topic</a>
