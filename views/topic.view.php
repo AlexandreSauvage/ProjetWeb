@@ -3,11 +3,28 @@
         <th class="sub-info w10">Auteur</th>
         <th class="main center">Sujet: <?= $topic['sujet'] ?></th>
     </tr>
+    <?php if($pageCourante == 1) { ?>
     <tr>
-        <td><?= $auteur['pseudo'] ?></td>
+        <td><?= get_pseudo($topic['id_createur']) ?></td>
         <td><?= $topic['contenu'] ?></td>
     </tr>
+    <?php } ?>
+    <?php while($r = $reponses->fetch()) { ?>
+    <tr>
+        <td><?= get_pseudo($r['id_posteur']) ?></td>
+        <td><?= $r['contenu'] ?></td>
+    </tr>
+    <?php } ?>
 </table>
+<?php
+    for($i=1;$i<=$pagesTotales;$i++) {
+        if($i == $pageCourante) {
+            echo $i.' ';
+        } else {
+            echo '<a href="topic.php?titre='.$get_titre.'&id='.$get_id.'&page='.$i.'">'.$i.'</a> ';
+        }
+    }
+    ?>
 <br />
 <?php if(isset($_SESSION['id'])) { ?>
     <form method="POST">
@@ -16,5 +33,5 @@
     </form>
     <?php if(isset($reponse_msg)) { echo $reponse_msg; } ?>
 <?php } else { ?>
-    <p>Veuillez vous connecter ou créer un compte pour poster une réponse</p>
+   <p>Veuillez vous connecter ou créer un compte pour poster une réponse</p>
 <?php } ?>
