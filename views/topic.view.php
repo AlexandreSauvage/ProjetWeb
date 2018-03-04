@@ -45,10 +45,12 @@
                 </form>
                 <?php if(isset($reponse_msg)) { echo $reponse_msg; } ?>
             <?php } else { ?>
-            <p>Veuillez vous connecter ou créer un compte pour poster une réponse.
-            <a href="connexion.php">Me connecter</a>
-            <a href="forum.php">Retour à l'accueil</a></p>
+            <p>Veuillez vous connecter ou créer un compte pour poster une réponse.</p>
+            <a class="btn ntopic" href="connexion.php">Me connecter</a>
+            </br>
             <?php } ?>
+            </br>
+            <a class="btn ntopic" href="forum.php">Retour à l'accueil</a>
         </div>
     </div>
 </div>

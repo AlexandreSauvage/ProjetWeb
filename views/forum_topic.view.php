@@ -17,7 +17,7 @@
                     <th class="sub-info hide-640">Réponses</th>
                     <th class="sub-info">Dernière rép.</th>
                 </tr>
-                <?php while($t = $topics->fetch()) { ?>
+                <?php while($t = $topics->fetch()) { /*Va chercher les topics*/ ?>
                 <tr>
                     <td class="main">
                     <h4><a href=""><a href="topic.php?titre=<?= url_custom_encode($t['sujet']) ?>&id=<?= $t['topic_base_id'] ?>"><?= $t['sujet'] ?></a></a></h4>

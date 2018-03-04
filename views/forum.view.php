@@ -43,6 +43,12 @@ require('php/config.php');
                 </tr>
                 <?php } ?>
             </table>
+            <?php if(isset($_SESSION['id']))
+            {
+            ?>
+            <a class="btn ntopic" href="editionprofil.php">Editer mon profil</a>
+            <a class="btn ntopic" href="deconnexion.php">Se déconnecter</a>
+            <?php } ?>
         </div>
     </div>
 </div>

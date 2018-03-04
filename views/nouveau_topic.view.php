@@ -53,6 +53,7 @@
                     </tr>
                     <?php } ?>
                 </table>
+                <a class="btn ntopic" href="forum.php">Accueil</a>
             </form>
         </div>
     </div>
