@@ -1,6 +1,7 @@
 <?php
 require('php/config.php'); /* Connexion à la bdd */
 require('php/functions.php'); /* Mes fonctions */
+require('php/functions_forum.php');
 
 if(isset($_GET['categorie']) AND !empty($_GET['categorie'])) {
    $get_categorie = htmlspecialchars($_GET['categorie']);

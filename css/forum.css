@@ -1,0 +1,103 @@
+/*Largeur de l'élément 100%*/
+.full-width {
+	width:100%;
+}
+/*Marge extérieur du bas 10px,fond blanc,largeur de l'élément 100%
+et taille de caractère 14px*/
+table.forum {
+	margin-bottom:10px;
+	background: #fff;
+	width:100%;
+	font-size:14px;
+}
+/*Fond blanc et bordure du bas 1px blanc */
+table.forum tr {
+	background:#fff;
+	border-bottom: 1px solid #EDEDED;
+}
+/*Bordure 1px blanc et alignement vertical*/
+table.forum tr th, table.forum tr td, table.forum tr td.sub-info {
+	border:1px solid #EDEDED;
+	vertical-align: middle;
+}
+/*Marge intérieur 7px de haut et 15px de large*/
+	table.forum tr th{
+		padding:7px 15px;
+	}
+	table.forum tr td {
+		padding:15px 15px;
+	}
+	table.forum tr.categories td {
+		padding:10px 15px;
+	}
+/*Marge intérieur,texte aligné,centré et taille 13px*/
+table.forum tr td.sub-info {
+	padding:5px 5px;
+	text-align: center;
+	vertical-align: middle;
+	font-size:13px;
+}
+/*Texte en majuscules,graset taille 13px*/
+table.forum tr th {
+	text-transform: uppercase;
+	font-weight:500;
+	font-size:13px;
+}
+/*Largeur de 50% et texte aligné à gauche*/
+table.forum tr th.main {
+	width: 50%;
+	text-align: left;
+}
+/*Largeur de 10%*/
+table.forum tr th.sub-info.w10 { width:10%; }
+/*Texte centré*/
+table.forum tr th.center { text-align: center; }
+/*Texte blanc,fond bleu,hauteur de ligne 14px*/
+table.forum tr.header {
+	color:#fff;
+	background-color:#46A2D9;
+	border-bottom: 1px solid transparent;
+	line-height:14px;
+}
+/*Taille de texte 15px,non gras et marge extérieur 0*/
+table.forum h4 {
+	font-size:15px;
+	font-weight: normal;
+	margin:0;
+}
+/*Taille de texte 13px,hauteur de ligne 16px et marge extérieur 0*/
+table.forum p {
+	font-size:13px;
+	line-height:16px;
+	margin:0;
+}
+/*Largeur de 20%*/
+table.forum.ntopic tr.header th.main {
+	width:20%;
+}
+/*Marge intérieur 10px et bordure 1px*/
+form.fntopic input, form.fntopic textarea, form.fntopic select {
+	padding: 10px;
+	border: 1px solid #A9A9A9;
+}
+/*Largeur de 97%*/
+form.fntopic textarea, form.fntopic select {
+	width: 97%;
+}
+/*Fond blanc*/
+.btn.ntopic {
+	background:#fff;
+}
+/*Image de fond non répété et largeur 100%*/
+body {
+    background-image: url("fond.jpeg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+/*Centré,fond noir,texte blanc et taille 60px*/
+h1 {
+    text-align: center;
+    background-color: black;
+    color: white;
+    font-size: 60px;
+}
